@@ -4,7 +4,8 @@
   "description": "Find Youtube videos quickly of the most popular movies and music out currently",
   "main": "index.js",
   "scripts": {
-    "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "Damon Tian",
