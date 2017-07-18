@@ -3,13 +3,12 @@ import React, { Component } from "react";
 const SearchBar = props => {
   // console.log(props)
   return(
-    <div className="row">
-      <div className="col-md-8 col-md-offset-2">
-        <div className="text-center" style={{marginTop: "2em"}}>
-          <h4 style={{fontFamily: "Anton", fontSize: "2em"}}>YOUTUBE SEARCH</h4>
-          <input type="text" onChange={(e)=>{return props.handleChangeQuery(e.target.value)}} className="form-control" placeholder="Searches YouTube as you type.." autoFocus/>
-        </div>
+    <div className="text-center" style={{margin: "2em auto",width: "75%"}}>
+      <div style={{textAlign: "center"}}>
+        <h4 style={{fontFamily: "Anton", fontSize: "2em", textAlign: "center"}}>YOUTUBE SEARCH</h4>
+        <small>search and watch Youtube on the same page</small>
       </div>
+      <input type="text" onChange={props.handleChangeQuery} className="form-control" placeholder="Search YouTube for trending videos and music" autoFocus/>
     </div>
   )
 }
