@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const VideoList = ({videos, selectedVideo, popular}) => {
+const VideoList = ({videos, selectedVideo}) => {
 
   const renderSearchList = () => {
     return videos.slice(1).map((video) => {
@@ -10,13 +10,15 @@ const VideoList = ({videos, selectedVideo, popular}) => {
           <ul className="media-list">
             <li className="media">
               <div className="media-left">
-                <a href="#" onClick={() => selectedVideo(video)}>
-                  <img className="media-object" src={video.snippet.thumbnails.default.url} />
+                <a href="#" onClick={selectedVideo.bind(null, video)}>
+                  <img className="media-object" src={video.snippet.thumbnails.default.url} width="120" height="90"/>
                 </a>
               </div>
               <div className="media-body">
-                <h4 className="media-heading">{video.snippet.title}</h4>
-                <p>{video.snippet.description}</p>
+                <a href="#" onClick={selectedVideo.bind(null, video)} style={{color: "black"}}>
+                  <h4 className="media-heading">{video.snippet.title}</h4>
+                  <p>{video.snippet.description}</p>
+                </a>
               </div>
             </li>
           </ul>
@@ -25,31 +27,13 @@ const VideoList = ({videos, selectedVideo, popular}) => {
     })
   }
 
-  const renderPopularList = () => {
-    return popular.map((popular) => {
-      // console.log(video)
-      return(
-        <div className="col-md-4" style={{padding: "1em"}} key={popular.etag}>
-          <a href={`https://www.youtube.com/watch?v=${popular.id}`} target="_blank">
-            <img src={popular.snippet.thumbnails.high.url} style={{width: "100%"}}/>
-          </a>
-        </div>  
-      )
-    })
-  }
   return(
-    <div>
+    <div className="col-md-4">
       {
         videos != "" ? 
         renderSearchList()
         :
-        <div>
-          <h4 style={{fontFamily: "Anton", fontSize: "2em", textAlign: "center"}}>This Week's Trending Youtube Videos</h4>
-          <div className="row">
-            {renderPopularList()}
-          </div>
-        </div>
-        
+        null
       }
     </div>
   )

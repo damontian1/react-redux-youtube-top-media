@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import videoReducer from "./videoReducer";
-import popularVideosReducer from "./popularVideosReducer";
+import topMusicReducer from "./topMusicReducer";
+import topMoviesReducer from "./topMoviesReducer";
 
 const rootReducer = combineReducers({
   videos: videoReducer,
-  popular: popularVideosReducer
+  topMusic: topMusicReducer,
+  topMovies: topMoviesReducer
 });
 
 export default rootReducer;

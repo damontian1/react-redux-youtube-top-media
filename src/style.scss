@@ -1,3 +1,57 @@
+/***********************/
+/*    color scheme     */
+/***********************/
+
+ // $primary: #3F5EF8;
+ // $secondary: #f7f7f7;
+ // $highlight: #3ecf8e;
+ // $dim: rgba(0,0,0,0.2);
+ // $text: #6b7c93;
+
+
+/***********************/
+/*       global        */
+/***********************/
+
+* {
+  box-sizing: border-box;
+}
 body {
-  background: red;
+  background: #f7f7f7;
+}
+
+/***********************/
+/* bootstrap overrides */
+/***********************/
+
+.navbar-default {
+  border-radius: 0;
+}
+
+/***********************/
+/*      desktop        */
+/***********************/
+
+section#search-bar {
+  ul {
+    position: absolute;
+    z-index: 1;
+    width: 75%;
+  }
+}
+.highlight {
+  background: lightgreen;
+  padding: 0.4em;
+  border-radius: 2px;
+}
+.highlight1 {
+  background: yellow;
+}
+
+/***********************/
+/*       mobile        */
+/***********************/
+
+@media (max-width: 991px){
+  
 }

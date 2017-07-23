@@ -1,10 +1,28 @@
 import React from "react";
+import SearchBar from "./SearchBar";
 
-const Navigation = function(){
+const Navigation = function(props){
   return(
-    <section id="navigation" style={{boxShadow: "0 4px 20px rgba(50,50,93,.50)", textAlign: "center", padding: "0.5em"}}>
-      <nav className="navbar">
-        <h3>react-redux-youtube-popular-media</h3>
+    <section id="navigation">
+      <nav className="navbar navbar-default">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-2">
+              <div>
+              </div>
+            </div>
+            <div className="col-md-8" style={{padding: "0.5em 0em"}}>
+              <div>
+               <SearchBar {...props} handleKeyDown={props.handleKeyDown} term={props.term} currentVideo={props.currentVideo} selectedVideo={props.selectedVideo} />
+              </div>
+            </div>
+            <div className="col-md-2 hidden-sm hidden-xs" style={{display: "flex",justifyContent: "flex-end", alignItems: "flex-end", height: "90px"}}>
+              <div>
+                <small>Made By: Damon Tian</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
     </section>
   )
