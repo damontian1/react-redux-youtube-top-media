@@ -8,11 +8,11 @@ const Movies = ({topMovies, handleMovieClick}) => {
   const renderList = () => {  
     return topMovies.map((item, i) => {
       return(
-        <div key={i} style={{display: "inline-block", width: "210px", overflow: "scroll", padding: "0.3em 0.3em 4em 0.3em"}}>
-          <a href="#">
+        <div key={i} style={{display: "inline-block", width: "210px", overflow: "scroll", padding: "0.3em 0.3em 1em 0.3em"}}>
+          <a href="#" style={{color: "black"}}>
             <img onClick={handleMovieClick.bind(null, item.title)} src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} style={{width: "100%", height: "330px",objectFit: "cover", borderRadius: "4px"}}/>
+            <p style={{height: "40px"}}>{`#${i+1} | ${item.title}`}</p>
           </a>
-          <p>{`#${i+1} | `}</p>
         </div>
       )
     })

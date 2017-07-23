@@ -58,9 +58,6 @@ class App extends Component {
     if(e.keyCode === 27){
       document.querySelector(".list-group").style.visibility = "hidden";
     }
-    else if(e.keyCode === 13){
-      document.querySelector(".list-group").style.visibility = "hidden";
-    }
   }
 
   render(){

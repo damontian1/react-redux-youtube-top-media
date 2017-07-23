@@ -38,6 +38,24 @@ section#search-bar {
     z-index: 1;
     width: 75%;
   }
+  h4 {
+    font-family: Anton; 
+    font-size: 1.75em; 
+    text-align: center; 
+    color: black; 
+    position: relative;
+    margin-bottom: 1em;
+  }
+  #logo:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: lightgreen;
+    height: 5px;
+    width: 400px;
+  }
 }
 .highlight {
   background: lightgreen;
@@ -52,6 +70,13 @@ section#search-bar {
 /*       mobile        */
 /***********************/
 
-@media (max-width: 991px){
-  
+@media (max-width: 768px){
+  section#search-bar {
+    h4 {
+      margin: 1em
+    }
+    #logo:after {
+      width: 350px;
+    }
+  }
 }

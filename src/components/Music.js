@@ -10,11 +10,11 @@ const Music = ({topMusic, handleMusicClick}) => {
    // console.log(props.topMusic[0])
     return topMusic.map((item, i) => {
       return(
-        <div key={i} style={{display: "inline-block", width: "33%", height: "270px", overflow: "hidden", margin: "0.3em 0em"}}>
+        <div key={i} style={{display: "inline-block", width: "275px", height: "250px", overflow: "hidden", margin: "0.3em 0em", padding: "0em 0.5em"}}>
           <a href="#">
-            <img onClick={handleMusicClick.bind(null, item.artistName, item.name)} src={item.artworkUrl100} style={{borderRadius: "4px"}}/>
+            <img onClick={handleMusicClick.bind(null, item.artistName, item.name)} src={item.artworkUrl100} style={{ borderRadius: "4px"}}/>
+            <p style={{color: "black"}}>{`#${i+1} | ${item.artistName} - ${item.name}`}</p>
           </a>
-          <p>{`#${i+1} | ${item.artistName} - ${item.name}`}</p>
         </div>
       )
     })
