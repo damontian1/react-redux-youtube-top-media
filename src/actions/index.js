@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchVideos = (query) => {
   const request = 
   axios
-    .get(`https://www.googleapis.com/youtube/v3/search?q=${query}&part=snippet&maxResults=7&key=AIzaSyDzGlcjHMtL3Vx2dE6HuRe4lHRm9U7K8lQ`)
+    .get(`https://www.googleapis.com/youtube/v3/search?q=${query}&part=snippet&maxResults=6&key=AIzaSyDzGlcjHMtL3Vx2dE6HuRe4lHRm9U7K8lQ`)
     return{
       type: "FETCH_VIDEOS",
       payload: request
@@ -12,7 +12,7 @@ export const fetchVideos = (query) => {
 export const fetchTopMusic = () => {
   const request = 
   axios
-    .get(`https://rss.itunes.apple.com/api/v1/us/itunes-music/top-songs/9/explicit/json`)
+    .get(`https://cors-anywhere.herokuapp.com/https://rss.itunes.apple.com/api/v1/us/itunes-music/top-songs/9/explicit/json`)
     return{
       type: "FETCH_TOP_MUSIC",
       payload: request
