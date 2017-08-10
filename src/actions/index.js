@@ -12,7 +12,7 @@ export const fetchVideos = (query) => {
 export const fetchTopMusic = () => {
   const request = 
   axios
-    .get(`https://cors-anywhere.herokuapp.com/https://rss.itunes.apple.com/api/v1/us/itunes-music/top-songs/9/explicit/json`)
+    .get(`https://rss.itunes.apple.com/api/v1/us/itunes-music/top-songs/9/explicit/json`)
     return{
       type: "FETCH_TOP_MUSIC",
       payload: request
