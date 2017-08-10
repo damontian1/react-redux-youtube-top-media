@@ -20,6 +20,9 @@
 body {
   background: #f7f7f7;
 }
+.form-control:focus {
+  border-color: lightgreen;
+}
 
 /***********************/
 /* bootstrap overrides */
