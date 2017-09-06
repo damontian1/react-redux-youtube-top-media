@@ -13189,7 +13189,7 @@ var _axios2 = _interopRequireDefault(_axios);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var fetchVideos = exports.fetchVideos = function fetchVideos(query) {
-  var request = _axios2.default.get("https://www.googleapis.com/youtube/v3/search?q=" + query + "&part=snippet&maxResults=7&key=AIzaSyDzGlcjHMtL3Vx2dE6HuRe4lHRm9U7K8lQ");
+  var request = _axios2.default.get("https://www.googleapis.com/youtube/v3/search?q=" + query + "&part=snippet&maxResults=6&key=AIzaSyDzGlcjHMtL3Vx2dE6HuRe4lHRm9U7K8lQ");
   return {
     type: "FETCH_VIDEOS",
     payload: request
