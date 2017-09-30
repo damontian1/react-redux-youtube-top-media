@@ -13196,7 +13196,7 @@ var fetchVideos = exports.fetchVideos = function fetchVideos(query) {
   };
 };
 var fetchTopMusic = exports.fetchTopMusic = function fetchTopMusic() {
-  var request = _axios2.default.get("https://cors-anywhere.herokuapp.com/https://rss.itunes.apple.com/api/v1/us/apple-music/top-songs/10/explicit.json");
+  var request = _axios2.default.get("https://cors-anywhere.herokuapp.com/https://rss.itunes.apple.com/api/v1/us/apple-music/top-songs/all/10/explicit.json");
   return {
     type: "FETCH_TOP_MUSIC",
     payload: request
@@ -13336,7 +13336,7 @@ var App = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      // console.log(this.props.topMovies)=
+      console.log(this.props);
       // console.log(this.state)
       var renderMediaList = function renderMediaList() {
         return _react2.default.createElement(
