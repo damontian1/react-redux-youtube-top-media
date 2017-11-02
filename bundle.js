@@ -13196,7 +13196,7 @@ var fetchVideos = exports.fetchVideos = function fetchVideos(query) {
   };
 };
 var fetchTopMusic = exports.fetchTopMusic = function fetchTopMusic() {
-  var request = _axios2.default.get("https://cors-anywhere.herokuapp.com/https://rss.itunes.apple.com/api/v1/us/apple-music/top-songs/all/10/explicit.json");
+  var request = _axios2.default.get("https://cors-anywhere.herokuapp.com/https://rss.itunes.apple.com/api/v1/us/itunes-music/top-songs/all/10/explicit.json");
   return {
     type: "FETCH_TOP_MUSIC",
     payload: request
@@ -13814,7 +13814,7 @@ var topMoviesReducer = function topMoviesReducer() {
   // console.log(action.payload.data)
   switch (action.type) {
     case "FETCH_TOP_MOVIES":
-      return [].concat(_toConsumableArray(state), _toConsumableArray(action.payload.data.results.slice(0, 8)));
+      return [].concat(_toConsumableArray(state), _toConsumableArray(action.payload.data.results.slice(0, 10)));
       break;
   }
   return state;
