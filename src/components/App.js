@@ -13,7 +13,7 @@ import { bindActionCreators } from "redux";
 // console.log(Actions.fetchVideos)
 
 class App extends Component {
-  
+
   constructor(props){
     super(props);
     this.state = {videos: "", currentVideo: "", term:""}
