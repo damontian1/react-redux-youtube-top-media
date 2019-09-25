@@ -4,8 +4,8 @@
   "description": "Find Youtube videos quickly of the most popular movies and music out currently",
   "main": "index.js",
   "scripts": {
-    "start": "node node_modules/webpack/bin/webpack.js",
-    "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "build": "node node_modules/webpack/bin/webpack.js",
+    "start": "nodemon node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "keywords": [],
   "author": "Damon Tian",
@@ -19,6 +19,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.4",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.5",
