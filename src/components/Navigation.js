@@ -1,8 +1,8 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 
-const Navigation = function(props){
-  return(
+const Navigation = function (props) {
+  return (
     <section id="navigation">
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -11,12 +11,12 @@ const Navigation = function(props){
               <div>
               </div>
             </div>
-            <div className="col-md-8" style={{padding: "0.5em 0em"}}>
+            <div className="col-md-8" style={{ padding: "0.5em 0em" }}>
               <div>
-               <SearchBar {...props} handleKeyDown={props.handleKeyDown} term={props.term} currentVideo={props.currentVideo} selectedVideo={props.selectedVideo} />
+                <SearchBar />
               </div>
             </div>
-            <div className="col-md-2 hidden-sm hidden-xs" style={{display: "flex",justifyContent: "flex-end", alignItems: "flex-end", height: "90px"}}>
+            <div className="col-md-2 hidden-sm hidden-xs" style={{ display: "flex", justifyContent: "flex-end", alignItems: "flex-end", height: "90px" }}>
               <div>
                 <small>Made By: Damon Tian</small>
               </div>

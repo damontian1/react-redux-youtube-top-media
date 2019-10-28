@@ -1,0 +1,24 @@
+{
+  "name": "react-redux-youtube-popular-media",
+  "version": "1.0.0",
+  "description": "Find Youtube videos quickly of the most popular movies and music out currently",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build index.html -d ../",
+    "start": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "Damon Tian",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "axios": "^0.16.2",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.8.3",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "sass": "^1.23.1"
+  }
+}

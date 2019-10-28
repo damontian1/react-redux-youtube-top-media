@@ -1,34 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
+import { Consumer } from './Context';
 
-const VideoResult = ({currentVideo, defaultVideo}) => {
-  // console.log(currentVideo)
+class VideoResult extends React.Component {
+  render() {
+    return (
+      <Consumer>
+        {props => {
 
-  const renderResult = () => {
-    if(currentVideo !== ""){
-      return(
-        <div>
-          <iframe width="100%" height="600" src={`https://www.youtube.com/embed/${currentVideo.id.videoId}`} frameBorder="0" allowFullScreen></iframe>
-          <h3>{currentVideo.snippet.title}</h3>
-          <p>{currentVideo.snippet.description}</p>
-        </div>
-      )
-    }
-    else if(defaultVideo){
-      return(
-        <div>
-          <iframe width="100%" height="600" src={`https://www.youtube.com/embed/${defaultVideo.id.videoId}`} frameBorder="0" allowFullScreen></iframe>
-          <h3>{defaultVideo.snippet.title}</h3>
-          <p>{defaultVideo.snippet.description}</p>
-        </div>
-      )
-    }
+          const renderResult = () => {
+            return (
+              <div>
+                <iframe width="100%" height="600" src={`https://www.youtube.com/embed/${props.currentVideo.id.videoId}`} frameBorder="0" allowFullScreen></iframe>
+                <h3>{props.currentVideo.snippet.title}</h3>
+                <p>{props.currentVideo.snippet.description}</p>
+              </div>
+            )
+          }
+
+          return (
+            < div className="col-md-8" >
+              {props.currentVideo && renderResult()}
+            </div>
+          )
+
+        }}
+      </Consumer >
+    )
   }
-  
-  return(
-    <div className="col-md-8">
-      {renderResult()}
-    </div>
-  )
 }
 
 export default VideoResult;
