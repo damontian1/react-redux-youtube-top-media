@@ -4,7 +4,7 @@
   "description": "Find Youtube videos quickly of the most popular movies and music out currently",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build index.html -d ../",
+    "build": "parcel build index.html -d ../ --public-url /react-redux-youtube-top-media/",
     "start": "parcel index.html"
   },
   "keywords": [],
