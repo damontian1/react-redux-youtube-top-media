@@ -1,5 +1,6 @@
 import React from "react";
 import { Consumer } from './Context';
+import Spinner from './Spinner';
 
 class Music extends React.Component {
 
@@ -27,7 +28,7 @@ class Music extends React.Component {
                   <small className="highlight">click to watch the music video</small>
                 </div>
                 <div style={{ height: "1155px" }}>
-                  {props.topMusic && renderList()}
+                  {props.topMusic ? renderList() : <Spinner />}
                 </div>
               </div>
             </section>

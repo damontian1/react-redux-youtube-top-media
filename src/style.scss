@@ -43,10 +43,10 @@ section#search-bar {
     width: 75%;
   }
   #banner-text {
-    font-family: Anton; 
-    font-size: 1.75em; 
-    text-align: center; 
-    color: black; 
+    font-family: Anton;
+    font-size: 1.75em;
+    text-align: center;
+    color: black;
     position: relative;
     margin-bottom: 1em;
   }
@@ -69,6 +69,22 @@ section#search-bar {
 .highlight1 {
   background: yellow;
 }
+.loader {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  vertical-align: text-bottom;
+  border: .25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin .75s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 /***********************/
 /*       mobile        */

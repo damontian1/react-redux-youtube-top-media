@@ -1,5 +1,6 @@
 import React from "react";
 import { Consumer } from './Context';
+import Spinner from './Spinner';
 
 class Movies extends React.Component {
   render() {
@@ -27,7 +28,7 @@ class Movies extends React.Component {
                   <small className="highlight">click to watch the movie trailer</small>
                 </div>
                 <div>
-                  {props.topMovies && renderList()}
+                  {props.topMovies ? renderList() : <Spinner />}
                 </div>
               </div>
             </section>

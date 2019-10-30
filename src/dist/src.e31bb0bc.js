@@ -33912,7 +33912,30 @@ var Navigation = function Navigation(props) {
 
 var _default = Navigation;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./SearchBar":"components/SearchBar.js"}],"components/Movies.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./SearchBar":"components/SearchBar.js"}],"components/Spinner.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Spinner = function Spinner() {
+  return _react.default.createElement("div", {
+    className: "loader",
+    style: {
+      marginTop: "5rem"
+    }
+  });
+};
+
+var _default = Spinner;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/Movies.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33923,6 +33946,8 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 var _Context = require("./Context");
+
+var _Spinner = _interopRequireDefault(require("./Spinner"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34010,7 +34035,7 @@ function (_React$Component) {
           }
         }, "THIS WEEK'S TOP MOVIES"), _react.default.createElement("small", {
           className: "highlight"
-        }, "click to watch the movie trailer")), _react.default.createElement("div", null, props.topMovies && renderList())));
+        }, "click to watch the movie trailer")), _react.default.createElement("div", null, props.topMovies ? renderList() : _react.default.createElement(_Spinner.default, null))));
       });
     }
   }]);
@@ -34080,7 +34105,7 @@ function (_React$Component) {
 
 var _default = Movies;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Context":"components/Context.js"}],"components/Music.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Context":"components/Context.js","./Spinner":"components/Spinner.js"}],"components/Music.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34091,6 +34116,8 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 var _Context = require("./Context");
+
+var _Spinner = _interopRequireDefault(require("./Spinner"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34178,7 +34205,7 @@ function (_React$Component) {
           style: {
             height: "1155px"
           }
-        }, props.topMusic && renderList())));
+        }, props.topMusic ? renderList() : _react.default.createElement(_Spinner.default, null))));
       });
     }
   }]);
@@ -34188,7 +34215,7 @@ function (_React$Component) {
 
 var _default = Music;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Context":"components/Context.js"}],"components/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Context":"components/Context.js","./Spinner":"components/Spinner.js"}],"components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34381,7 +34408,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60151" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57041" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
