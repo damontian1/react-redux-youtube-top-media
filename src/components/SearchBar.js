@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
                 <div style={{ textAlign: "center" }}>
                   <a href="/" style={{ textDecoration: "none" }}>
                     <h4 id="banner-text">
-                      <span id="logo">ReactJS + Redux YouTube Top Media</span>
+                      <span id="logo">YouTube Top Media</span>
                     </h4>
                   </a>
                 </div>

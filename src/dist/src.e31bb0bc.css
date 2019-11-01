@@ -398,15 +398,10 @@ section#search-bar #banner-text {
   position: relative;
   margin-bottom: 1em;
 }
-section#search-bar #logo:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: lightgreen;
-  height: 5px;
-  width: 400px;
+section#search-bar #logo {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  border-bottom: 5px solid lightgreen;
 }
 
 .highlight {
@@ -420,6 +415,8 @@ section#search-bar #logo:after {
 }
 
 .loader {
+  position: absolute;
+  left: 50%;
   display: inline-block;
   width: 3rem;
   height: 3rem;
@@ -448,6 +445,7 @@ section#search-bar #logo:after {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 1rem;
+  position: relative;
 }
 
 .search-results .list-group-item {
