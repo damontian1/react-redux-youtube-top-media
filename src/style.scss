@@ -1,19 +1,7 @@
+/*-----------------------
+	SETUP
+-----------------------*/
 @import url('https://fonts.googleapis.com/css?family=Anton');
-/***********************/
-/*    color scheme     */
-/***********************/
-
- // $primary: #3F5EF8;
- // $secondary: #f7f7f7;
- // $highlight: #3ecf8e;
- // $dim: rgba(0,0,0,0.2);
- // $text: #6b7c93;
-
-
-/***********************/
-/*       global        */
-/***********************/
-
 * {
   box-sizing: border-box;
 }
@@ -23,19 +11,58 @@ body {
 .form-control:focus {
   border-color: lightgreen;
 }
-
-/***********************/
-/* bootstrap overrides */
-/***********************/
-
+.navbar {
+  border: none;
+}
 .navbar-default {
   border-radius: 0;
 }
+$spaceamounts: (0, 1, 2, 3, 4, 5);
+$ranges: (
+    0: "0",
+    1: "0.25",
+    2: "0.5",
+    3: "1",
+    4: "1.5",
+    5: "3"
+);
+$sides: ("top", "bottom", "left", "right", "x", "y", "");
 
-/***********************/
-/*      desktop        */
-/***********************/
-
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      @if ($side == "y") {
+		 	margin-top: #{map-get($ranges, $space)}rem !important;
+      	margin-bottom: #{map-get($ranges, $space)}rem !important;
+      } @else if ($side == "x") {
+      	margin-left: #{map-get($ranges, $space)}rem !important;
+      	margin-right: #{map-get($ranges, $space)}rem !important;
+      }
+      @else if ($side == "") {
+      	margin: #{map-get($ranges, $space)}rem !important;
+      } @else {
+      	margin-#{$side}: #{map-get($ranges, $space)}rem !important;
+      }
+    }
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      @if ($side == "y") {
+      	padding-top: #{map-get($ranges, $space)}rem !important;
+      	padding-bottom: #{map-get($ranges, $space)}rem !important;
+      } @else if ($side == "x") {
+		 	padding-left: #{map-get($ranges, $space)}rem !important;
+      	padding-right: #{map-get($ranges, $space)}rem !important;
+      }
+      @else if ($side == "") {
+      	padding: #{map-get($ranges, $space)}rem !important;
+      } @else {
+      	padding-#{$side}: #{map-get($ranges, $space)}rem !important;
+      }
+    }
+  }
+}
+/*-----------------------
+	DESKTOP
+-----------------------*/
 section#search-bar {
   ul {
     position: absolute;
@@ -84,12 +111,34 @@ section#search-bar {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-
-/***********************/
-/*       mobile        */
-/***********************/
-
+.movie__posters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+}
+.music__posters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 1rem;
+}
+.search-results {
+  .list-group-item {
+    text-align: left;
+    & > div {
+      padding-left: 1rem;
+    }
+  }
+}
+/*-----------------------
+	MOBILE
+-----------------------*/
+@media (max-width: 992px){
+  .movie__posters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+  }
+}
 @media (max-width: 768px){
   section#search-bar {
     h4 {
@@ -97,6 +146,17 @@ section#search-bar {
     }
     #logo:after {
       width: 350px;
+    }
+  }
+  .search-results {
+    .list-group-item {
+      text-align: left;
+      p {
+        font-size: 1.2rem;
+      }
+      h3 {
+        font-size: 1.9rem;
+      }
     }
   }
 }

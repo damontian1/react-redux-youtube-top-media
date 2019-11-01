@@ -11,11 +11,11 @@ class App extends React.Component {
   render() {
     const renderMediaList = () => {
       return (
-        <div className="row">
-          <div className="col-md-6">
+        <div className="row mt-4">
+          <div className="col-md-7">
             <Movies />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-5">
             <Music />
           </div>
         </div>
@@ -24,14 +24,16 @@ class App extends React.Component {
 
     return (
       <Provider>
-        <Navigation />
-        <div className="row">
-          <div className="container-fluid">
-            <VideoResult />
-            <VideoList />
+        <div className="container-fluid" style={{ minWidth: "400px" }}>
+          <Navigation />
+          <div className="row">
+            <div className="container-fluid">
+              <VideoResult />
+              <VideoList />
+            </div>
           </div>
+          {renderMediaList()}
         </div>
-        {renderMediaList()}
       </Provider >
     )
 

@@ -33625,13 +33625,17 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement(_Context.Consumer, null, function (props) {
         var renderResult = function renderResult() {
-          return _react.default.createElement("div", null, _react.default.createElement("iframe", {
+          return _react.default.createElement("div", {
+            className: "video-result"
+          }, _react.default.createElement("iframe", {
             width: "100%",
             height: "600",
             src: "https://www.youtube.com/embed/".concat(props.currentVideo.id.videoId),
             frameBorder: "0",
             allowFullScreen: true
-          }), _react.default.createElement("h3", null, props.currentVideo.snippet.title), _react.default.createElement("p", null, props.currentVideo.snippet.description));
+          }), _react.default.createElement("div", {
+            className: "video-result__text pb-5 mb-5"
+          }, _react.default.createElement("h3", null, props.currentVideo.snippet.title), _react.default.createElement("p", null, props.currentVideo.snippet.description)));
         };
 
         return _react.default.createElement("div", {
@@ -33813,16 +33817,7 @@ function (_React$Component) {
               className: "hidden-xs"
             }, _react.default.createElement("img", {
               src: item.snippet.thumbnails.default.url
-            })), _react.default.createElement("div", {
-              style: {
-                margin: "0 auto",
-                padding: "0em 3em"
-              }
-            }, _react.default.createElement("h3", {
-              style: {
-                fontSize: "1.7em"
-              }
-            }, item.snippet.title), _react.default.createElement("p", null, item.snippet.description))));
+            })), _react.default.createElement("div", null, _react.default.createElement("h3", null, item.snippet.title), _react.default.createElement("p", null, item.snippet.description))));
           });
         };
 
@@ -33858,7 +33853,7 @@ function (_React$Component) {
             padding: "1.5em 1em"
           }
         }), _react.default.createElement("ul", {
-          className: "list-group"
+          className: "list-group search-results"
         }, props.videos && renderListItems()))));
       });
     }
@@ -33987,13 +33982,7 @@ function (_React$Component) {
         var renderList = function renderList() {
           return props.topMovies.map(function (item, i) {
             return _react.default.createElement("div", {
-              key: i,
-              style: {
-                display: "inline-block",
-                width: "210px",
-                overflow: "scroll",
-                padding: "0.3em 0.3em 1em 0.3em"
-              }
+              key: i
             }, _react.default.createElement("a", {
               href: "#",
               style: {
@@ -34004,9 +33993,10 @@ function (_React$Component) {
               src: "https://image.tmdb.org/t/p/w500/".concat(item.poster_path),
               style: {
                 width: "100%",
-                height: "330px",
+                height: "100%",
                 objectFit: "cover",
-                borderRadius: "4px"
+                borderRadius: "4px",
+                maxHeight: "600px"
               }
             }), _react.default.createElement("p", {
               style: {
@@ -34035,7 +34025,9 @@ function (_React$Component) {
           }
         }, "THIS WEEK'S TOP MOVIES"), _react.default.createElement("small", {
           className: "highlight"
-        }, "click to watch the movie trailer")), _react.default.createElement("div", null, props.topMovies ? renderList() : _react.default.createElement(_Spinner.default, null))));
+        }, "click to watch the movie trailer")), _react.default.createElement("div", {
+          className: "movie__posters mt-5"
+        }, props.topMovies ? renderList() : _react.default.createElement(_Spinner.default, null))));
       });
     }
   }]);
@@ -34157,22 +34149,15 @@ function (_React$Component) {
         var renderList = function renderList() {
           return props.topMusic.map(function (item, i) {
             return _react.default.createElement("div", {
-              key: i,
-              style: {
-                display: "inline-block",
-                width: "275px",
-                height: "250px",
-                overflow: "hidden",
-                margin: "0.3em 0em",
-                padding: "0em 0.5em"
-              }
+              key: i
             }, _react.default.createElement("a", {
               href: "#"
             }, _react.default.createElement("img", {
               onClick: props.handleMusicClick.bind(null, item.artistName, item.name),
               src: item.artworkUrl100,
               style: {
-                borderRadius: "4px"
+                borderRadius: "4px",
+                width: "100%"
               }
             }), _react.default.createElement("p", {
               style: {
@@ -34202,9 +34187,7 @@ function (_React$Component) {
         }, "THIS WEEK'S TOP SONGS"), _react.default.createElement("small", {
           className: "highlight"
         }, "click to watch the music video")), _react.default.createElement("div", {
-          style: {
-            height: "1155px"
-          }
+          className: "music__posters mt-5"
         }, props.topMusic ? renderList() : _react.default.createElement(_Spinner.default, null))));
       });
     }
@@ -34273,19 +34256,24 @@ function (_React$Component) {
     value: function render() {
       var renderMediaList = function renderMediaList() {
         return _react.default.createElement("div", {
-          className: "row"
+          className: "row mt-4"
         }, _react.default.createElement("div", {
-          className: "col-md-6"
+          className: "col-md-7"
         }, _react.default.createElement(_Movies.default, null)), _react.default.createElement("div", {
-          className: "col-md-6"
+          className: "col-md-5"
         }, _react.default.createElement(_Music.default, null)));
       };
 
-      return _react.default.createElement(_Context.Provider, null, _react.default.createElement(_Navigation.default, null), _react.default.createElement("div", {
+      return _react.default.createElement(_Context.Provider, null, _react.default.createElement("div", {
+        className: "container-fluid",
+        style: {
+          minWidth: "400px"
+        }
+      }, _react.default.createElement(_Navigation.default, null), _react.default.createElement("div", {
         className: "row"
       }, _react.default.createElement("div", {
         className: "container-fluid"
-      }, _react.default.createElement(_VideoResult.default, null), _react.default.createElement(_VideoList.default, null))), renderMediaList());
+      }, _react.default.createElement(_VideoResult.default, null), _react.default.createElement(_VideoList.default, null))), renderMediaList()));
     }
   }]);
 
@@ -34408,7 +34396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57041" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57964" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

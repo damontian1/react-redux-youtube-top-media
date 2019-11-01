@@ -11,9 +11,9 @@ class Music extends React.Component {
           const renderList = () => {
             return props.topMusic.map((item, i) => {
               return (
-                <div key={i} style={{ display: "inline-block", width: "275px", height: "250px", overflow: "hidden", margin: "0.3em 0em", padding: "0em 0.5em" }}>
+                <div key={i}>
                   <a href="#">
-                    <img onClick={props.handleMusicClick.bind(null, item.artistName, item.name)} src={item.artworkUrl100} style={{ borderRadius: "4px" }} />
+                    <img onClick={props.handleMusicClick.bind(null, item.artistName, item.name)} src={item.artworkUrl100} style={{ borderRadius: "4px", width: "100%" }} />
                     <p style={{ color: "black" }}>{`#${i + 1} | ${item.artistName} - ${item.name}`}</p>
                   </a>
                 </div>
@@ -27,7 +27,7 @@ class Music extends React.Component {
                   <h4 style={{ fontFamily: "Anton", fontSize: "2em", textAlign: "center" }}>THIS WEEK'S TOP SONGS</h4>
                   <small className="highlight">click to watch the music video</small>
                 </div>
-                <div style={{ height: "1155px" }}>
+                <div className="music__posters mt-5">
                   {props.topMusic ? renderList() : <Spinner />}
                 </div>
               </div>

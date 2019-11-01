@@ -9,10 +9,12 @@ class VideoResult extends React.Component {
 
           const renderResult = () => {
             return (
-              <div>
+              <div className="video-result">
                 <iframe width="100%" height="600" src={`https://www.youtube.com/embed/${props.currentVideo.id.videoId}`} frameBorder="0" allowFullScreen></iframe>
-                <h3>{props.currentVideo.snippet.title}</h3>
-                <p>{props.currentVideo.snippet.description}</p>
+                <div className="video-result__text pb-5 mb-5">
+                  <h3>{props.currentVideo.snippet.title}</h3>
+                  <p>{props.currentVideo.snippet.description}</p>
+                </div>
               </div>
             )
           }
