@@ -31789,7 +31789,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-},{}],"node_modules/axios/node_modules/is-buffer/index.js":[function(require,module,exports) {
+},{}],"node_modules/is-buffer/index.js":[function(require,module,exports) {
 /*!
  * Determine if an object is a Buffer
  *
@@ -32135,7 +32135,7 @@ module.exports = {
   trim: trim
 };
 
-},{"./helpers/bind":"node_modules/axios/lib/helpers/bind.js","is-buffer":"node_modules/axios/node_modules/is-buffer/index.js"}],"node_modules/axios/lib/helpers/buildURL.js":[function(require,module,exports) {
+},{"./helpers/bind":"node_modules/axios/lib/helpers/bind.js","is-buffer":"node_modules/is-buffer/index.js"}],"node_modules/axios/lib/helpers/buildURL.js":[function(require,module,exports) {
 'use strict';
 
 var utils = require('./../utils');
@@ -33578,14 +33578,14 @@ function (_React$Component) {
       this.setState({
         currentVideo: ""
       });
-      this.props.fetchVideos(title);
+      this.fetchVideos(title, true);
       document.querySelector(".list-group").style.visibility = "hidden";
     }
   }, {
     key: "handleMusicClick",
     value: function handleMusicClick(artist, title) {
       var song = "".concat(artist, " - ").concat(artist);
-      this.props.fetchVideos(song);
+      this.fetchVideos(song, true);
       document.querySelector(".list-group").style.visibility = "hidden";
     }
   }, {
@@ -33634,8 +33634,17 @@ function (_React$Component) {
     value: function fetchVideos(query) {
       var _this4 = this;
 
+      var listClick = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       _axios.default.get("https://www.googleapis.com/youtube/v3/search?q=".concat(query, "&part=snippet&maxResults=6&key=AIzaSyDzGlcjHMtL3Vx2dE6HuRe4lHRm9U7K8lQ")).then(function (res) {
         var data = res.data.items;
+
+        if (listClick) {
+          _this4.setState({
+            videos: data,
+            currentVideo: data[0]
+          });
+        }
 
         _this4.setState({
           videos: data
@@ -33881,7 +33890,7 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement(_Context.Consumer, null, function (props) {
         var renderListItems = function renderListItems() {
-          console.log(props.videos);
+          // console.log(props.videos)
           return props.videos.map(function (item, i) {
             return _react.default.createElement("a", {
               key: i,
@@ -34482,7 +34491,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57918" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63917" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

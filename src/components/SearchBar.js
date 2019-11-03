@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
       <Consumer>
         {props => {
           const renderListItems = () => {
-            console.log(props.videos)
+            // console.log(props.videos)
             return props.videos.map((item, i) => {
               return (
                 <a key={i} href="#" style={{ textDecoration: "none", color: "black" }}>

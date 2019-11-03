@@ -28,13 +28,13 @@ export class Provider extends React.Component {
 
   handleMovieClick(title) {
     this.setState({ currentVideo: "" })
-    this.props.fetchVideos(title)
+    this.fetchVideos(title, true);
     document.querySelector(".list-group").style.visibility = "hidden";
   }
 
   handleMusicClick(artist, title) {
     var song = `${artist} - ${artist}`;
-    this.props.fetchVideos(song);
+    this.fetchVideos(song, true);
     document.querySelector(".list-group").style.visibility = "hidden";
   }
 
@@ -67,11 +67,14 @@ export class Provider extends React.Component {
       })
   }
 
-  fetchVideos(query) {
+  fetchVideos(query, listClick = false) {
     axios
       .get(`https://www.googleapis.com/youtube/v3/search?q=${query}&part=snippet&maxResults=6&key=AIzaSyDzGlcjHMtL3Vx2dE6HuRe4lHRm9U7K8lQ`)
       .then(res => {
         const data = res.data.items;
+        if (listClick) {
+          this.setState({ videos: data, currentVideo: data[0] });
+        }
         this.setState({ videos: data });
       })
   }
